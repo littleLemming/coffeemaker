@@ -101,3 +101,19 @@ freeaddrinfo(addrinfo);
 ```
 
 `addrinfo` here stands for the specific name of the addressinfo.
+
+## Send and Receive
+
+As soon as a connection has been established `send` and `recv` can be called.
+
+```
+recv(sockfd, buffer_to_write_to,length_of_buffer, 0);
+```
+
+This returns the length of the received message. As it is not clear how much that will be `recv` should be ideally called in a loop until the whole message has been received.
+
+```
+recv(sockfd, buffer_to_send_from,length_of_buffer, 0);
+```
+
+`send` works basically the same as `recv` only that the buffer is not being written to but whatever is written there gets sent.
